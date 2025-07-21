@@ -7,10 +7,9 @@ import { BsGridFill } from "react-icons/bs";
 import { GoVerified } from "react-icons/go";
 import millify from "millify";
 import DefaultImage from "../app/assets/house.jpg";
-import { Prisma, PrismaClient } from "@/generated/prisma";
+import { Prisma } from "@/generated/prisma";
+import { prisma } from "@/lib/prisma";
 import noresult from "../app/assets/noresult.svg";
-
-const prisma = new PrismaClient();
 
 const Property = async ({
   where,
