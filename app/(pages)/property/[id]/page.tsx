@@ -31,7 +31,7 @@ import Image from "next/image";
 const PropertyDetails = async ({
   searchParams,
 }: {
-  searchParams: { id: number };
+  searchParams: { id: string };
 }) => {
   const { id } = searchParams;
   const property = await prisma.property.findFirst({

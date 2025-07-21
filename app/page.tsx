@@ -1,10 +1,8 @@
-import { Prisma, PrismaClient } from "@/generated/prisma";
+import { Prisma } from "@/generated/prisma";
 import Banner from "@/components/Banner";
 import Property from "@/components/Property";
 import { Suspense } from "react";
 import Loading from "./(pages)/search/loading";
-
-const prisma = new PrismaClient();
 
 export default async function Home() {
   const whereSale: Prisma.PropertyWhereInput = { purpose: "for-sale" };

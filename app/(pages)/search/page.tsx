@@ -1,5 +1,4 @@
 import React, { Suspense } from "react";
-import Image from "next/image";
 import SearchFilters from "@/components/SearchFilters";
 import Property from "@/components/Property";
 import { Prisma } from "@/generated/prisma";
