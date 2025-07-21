@@ -5,18 +5,20 @@ import { Prisma } from "@/generated/prisma";
 import Loading from "./loading";
 
 type SearchParams = {
-  search?: string;
-  purpose?: string;
-  minPrice?: string;
-  maxPrice?: string;
-  bathsMin?: string;
-  roomsMin?: string;
-  rentFrequency?: string;
-  areaMax?: string;
-  sort?: string;
+  searchParams: Promise<{
+    search?: string;
+    purpose?: string;
+    minPrice?: string;
+    maxPrice?: string;
+    bathsMin?: string;
+    roomsMin?: string;
+    rentFrequency?: string;
+    areaMax?: string;
+    sort?: string;
+  }>;
 };
 
-const page = async ({ searchParams }: { searchParams: SearchParams }) => {
+const page = async ({ searchParams }: SearchParams) => {
   const {
     search,
     purpose,
