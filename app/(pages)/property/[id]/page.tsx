@@ -29,11 +29,11 @@ import Image from "next/image";
 // };
 
 type PropertyPageProps = {
-  searchParams: { id?: string };
+  params: { id?: string };
 };
 
-const PropertyDetails = async ({ searchParams }: PropertyPageProps) => {
-  const { id } = searchParams;
+const PropertyDetails = async ({ params }: PropertyPageProps) => {
+  const { id } = params;
   const property = await prisma.property.findFirst({
     where: { id },
   });
