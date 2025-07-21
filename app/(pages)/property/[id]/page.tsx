@@ -11,29 +11,29 @@ const prisma = new PrismaClient();
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Image from "next/image";
 
-type PropertyType = {
-  id: number;
-  purpose: string;
-  title: string;
-  description: string;
-  price: number;
-  rentFrequency: string;
-  location: string;
-  area: number;
-  bedrooms: number;
-  bathrooms: number;
-  images: string;
-  agency: string;
-  isVerified: boolean;
-  createdAt: Date;
-};
+// type PropertyType = {
+//   id: number;
+//   purpose: string;
+//   title: string;
+//   description: string;
+//   price: number;
+//   rentFrequency: string;
+//   location: string;
+//   area: number;
+//   bedrooms: number;
+//   bathrooms: number;
+//   images: string;
+//   agency: string;
+//   isVerified: boolean;
+//   createdAt: Date;
+// };
 
 const PropertyDetails = async ({
   searchParams,
 }: {
   searchParams: { id: number };
 }) => {
-  const { id } = await searchParams;
+  const { id } = searchParams;
   const property = await prisma.property.findFirst({
     where: { id },
   });
