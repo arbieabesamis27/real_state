@@ -28,12 +28,12 @@ import Image from "next/image";
 //   createdAt: Date;
 // };
 
-type PropertyPageProps = {
-  params: { id?: string };
-};
-
-const PropertyDetails = async ({ params }: PropertyPageProps) => {
-  const { id } = params;
+const PropertyDetails = async ({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) => {
+  const { id } = await params;
   const property = await prisma.property.findFirst({
     where: { id },
   });
