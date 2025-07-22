@@ -59,19 +59,26 @@ const page = async ({ searchParams }: SearchParams) => {
   const where: Prisma.PropertyWhereInput =
     filters.length > 0 ? { AND: filters } : {};
 
-  const orderBy: Prisma.PropertyOrderByWithRelationInput =
-    sort === "price-asc"
-      ? { price: "asc" }
-      : sort === "price-desc"
-      ? { price: "desc" }
-      : { createdAt: "desc" };
+  // const orderBy: Prisma.PropertyOrderByWithRelationInput =
+  //   sort === "price-asc"
+  //     ? { price: "asc" }
+  //     : sort === "price-desc"
+  //     ? { price: "desc" }
+  //     : { createdAt: "desc" };
+
+  const whereSale: Prisma.PropertyWhereInput = { purpose: "for-sale" };
+  // const whereRent: Prisma.PropertyWhereInput = { purpose: "for-rent" };
+
+  const orderBy: Prisma.PropertyOrderByWithRelationInput = {
+    createdAt: "desc",
+  };
 
   return (
     <div>
       <SearchFilters />
       <p className="text-2xl p-4 font-bold">Properties: {search}</p>
       <Suspense fallback={<Loading />}>
-        <Property where={where} orderBy={orderBy} />
+        <Property where={whereSale} orderBy={orderBy} />
       </Suspense>
     </div>
   );
