@@ -4,32 +4,32 @@ import Property from "@/components/Property";
 import { Prisma } from "@/generated/prisma";
 import Loading from "./loading";
 
-// type SearchParams = {
-//   searchParams: Promise<{
-//     search?: string;
-//     purpose?: string;
-//     minPrice?: string;
-//     maxPrice?: string;
-//     bathsMin?: string;
-//     roomsMin?: string;
-//     rentFrequency?: string;
-//     areaMax?: string;
-//     sort?: string;
-//   }>;
-// };
+type SearchParams = {
+  searchParams: Promise<{
+    // search?: string;
+    purpose?: string;
+    // minPrice?: string;
+    // maxPrice?: string;
+    // bathsMin?: string;
+    // roomsMin?: string;
+    // rentFrequency?: string;
+    // areaMax?: string;
+    // sort?: string;
+  }>;
+};
 
-const page = async () => {
-  // const {
-  //   search,
-  //   purpose,
-  //   rentFrequency,
-  //   maxPrice,
-  //   minPrice,
-  //   bathsMin,
-  //   roomsMin,
-  //   areaMax,
-  //   sort,
-  // } = await searchParams;
+const page = async ({ searchParams }: SearchParams) => {
+  const {
+    // search,
+    purpose,
+    // rentFrequency,
+    // maxPrice,
+    // minPrice,
+    // bathsMin,
+    // roomsMin,
+    // areaMax,
+    // sort,
+  } = await searchParams;
 
   // const filters: Prisma.PropertyWhereInput[] = [];
 
@@ -66,7 +66,7 @@ const page = async () => {
   //     ? { price: "desc" }
   //     : { createdAt: "desc" };
 
-  const whereSale: Prisma.PropertyWhereInput = { purpose: "for-sale" };
+  const whereSale: Prisma.PropertyWhereInput = { purpose };
   // const whereRent: Prisma.PropertyWhereInput = { purpose: "for-rent" };
 
   const orderBy: Prisma.PropertyOrderByWithRelationInput = {
