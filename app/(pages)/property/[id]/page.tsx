@@ -2,29 +2,14 @@ import { FaBed, FaBath } from "react-icons/fa";
 import { BsGridFill } from "react-icons/bs";
 import { GoVerified } from "react-icons/go";
 import millify from "millify";
-import { prisma } from "@/lib/prisma";
+import { PrismaClient } from "@/generated/prisma";
 import ImageScrollbar from "@/components/ImageScrollbar";
 import noresult from "@/app/assets/noresult.svg";
 
+const prisma = new PrismaClient();
+
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Image from "next/image";
-
-// type PropertyType = {
-//   id: number;
-//   purpose: string;
-//   title: string;
-//   description: string;
-//   price: number;
-//   rentFrequency: string;
-//   location: string;
-//   area: number;
-//   bedrooms: number;
-//   bathrooms: number;
-//   images: string;
-//   agency: string;
-//   isVerified: boolean;
-//   createdAt: Date;
-// };
 
 const PropertyDetails = async ({
   params,
