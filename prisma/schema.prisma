@@ -1,22 +1,16 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
   output   = "../generated/prisma"
-  
 }
 
 datasource db {
-  provider  = "postgresql"
-  url       = env("DATABASE_URL")
-  directUrl = env("DIRECT_URL")
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
-
 model Property {
-  id            String       @id @default(uuid())
-  purpose       String   // for-rent or for-sale
+  id            String   @id @default(uuid())
+  purpose       String
   title         String
   description   String
   price         Int
@@ -25,8 +19,8 @@ model Property {
   area          Int
   bedrooms      Int
   bathrooms     Int
-  images         String
-  agency        String   // agency logo URL
+  images        String
+  agency        String
   isVerified    Boolean  @default(false)
   createdAt     DateTime @default(now())
 }
